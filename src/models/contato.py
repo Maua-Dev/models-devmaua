@@ -1,3 +1,5 @@
+from src.models.telefone import Telefone
+
 from pydantic import BaseModel, validator
 
 class Contato(BaseModel):
