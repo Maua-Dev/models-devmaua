@@ -1,7 +1,7 @@
 from typing import Optional
 from src.models.pessoa import Pessoa
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 
 class Aluno(Pessoa, BaseModel):
     ra: str
