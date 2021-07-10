@@ -1,6 +1,9 @@
 from src.enum.periodo import Periodo
 
 from src.models.pessoa import Pessoa
+from src.models.curso import Curso
+from src.models.disciplina import Disciplina
+
 from typing import Optional
 from pydantic import BaseModel, validator
 
