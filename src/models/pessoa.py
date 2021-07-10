@@ -1,10 +1,12 @@
 from src.enum.roles import Roles
+from src.models.contato import Contato
+
 from datetime import date
 from pydantic import BaseModel, validator
 
 class Pessoa(BaseModel):
     nome: str
-    contato: Contato #fazer
+    contato: Contato
     nascimento: date
     roles: list[Roles]
 
