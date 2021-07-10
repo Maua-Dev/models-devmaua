@@ -1,4 +1,5 @@
 from src.models.telefone import Telefone
+from src.models.email import Email
 
 from pydantic import BaseModel, validator
 
