@@ -1,6 +1,7 @@
-from typing import Optional
-from src.models.pessoa import Pessoa
+from src.enum.periodo import Periodo
 
+from src.models.pessoa import Pessoa
+from typing import Optional
 from pydantic import BaseModel, validator
 
 class Aluno(Pessoa, BaseModel):
