@@ -1,5 +1,4 @@
-from src.enum.sala import Sala
-
+from src.models.sala import Sala
 from src.models.professor import Professor
 from src.models.disciplina import Disciplina
 
