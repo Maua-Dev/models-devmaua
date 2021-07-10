@@ -1,3 +1,5 @@
+from src.enum.tipo_telefone import TipoTelefone
+
 from pydantic import BaseModel
 
 class Telefone(BaseModel):
