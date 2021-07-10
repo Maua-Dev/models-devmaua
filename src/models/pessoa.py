@@ -1,3 +1,4 @@
+from src.enum.roles import Roles
 from datetime import date
 from pydantic import BaseModel, validator
 
