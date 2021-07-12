@@ -11,7 +11,7 @@ class Test_Telefone():
     def test_create_instance_model(self):
         tel = Telefone(tipo = TipoTelefone.Privado,
                        numero = '99999-9999',
-                       ddd='11',
+                       ddd=11,
                        prioridade = 3)
         assert tel.tipo == TipoTelefone.Privado
         assert tel.numero == "99999-9999"
