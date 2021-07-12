@@ -18,8 +18,10 @@ class Aluno(Usuario, BaseModel):
     listaDPs: Optional[list[Disciplina]]
     hasDP: bool
 
-    @validator('ra')
-    def ra_is_not_empty(cls, v):
-        if len(v) == 0:
-            raise ValueError('RA is empty')
-        return v.title()
+    @validator('serie', 'periodo')
+    def serie_is_valid(cls, v):
+        periodo = v.get('periodo')
+        serie = v.get('serie')
+        if ((v < 1 and v > 5) and (periodo != Periodo.Diurno)) or ((v < 1 and v > 6) and (periodo != Periodo.Noturno)):
+            raise ValueError('Serie invalida')
+        return v
