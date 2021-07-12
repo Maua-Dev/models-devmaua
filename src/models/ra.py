@@ -1,32 +1,43 @@
+import re
+
 from pydantic import BaseModel, validator
 
 
 class RA(BaseModel):
-    ano: int
+    ano: str
     numero: str
-    digito: int
+    digito: str
     
     @validator('ano')
     def ano_is_valid(cls, v):
-        if v < 0 or v > 99:
+        padrao = re.compile(r'[0-9]{2}$')
+        valido = padrao.match(v)
+        is_valid = bool(valido)
+        if is_valid != True:
             raise ValueError('Ano invalido')
         return v
     
     @validator('numero')
     def numero_is_valid(cls, v):
-        if len(v) != 5:
+        padrao = re.compile(r'[0-9]{5}$')
+        valido = padrao.match(v)
+        is_valid = bool(valido)
+        if is_valid != True:
             raise ValueError('Numero do RA invalido')
         return v
     
     @validator('digito')
     def digito_is_valid(cls, v):
-        if v < 0 or v > 9:
+        padrao = re.compile(r'[0-9]{1}$')
+        valido = padrao.match(v)
+        is_valid = bool(valido)
+        if is_valid != True:
             raise ValueError('Digito invalido')
         return v
     
     def toString(self):
         try:
-            v = str.format("%i.%s-%i" % (self.ano, self.numero, self.digito))
+            v = str.format("%s.%s-%s" % (self.ano, self.numero, self.digito))
             return v
         except TypeError as e:
             print(e)
