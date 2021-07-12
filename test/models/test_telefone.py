@@ -1,7 +1,10 @@
-from src.enum.tipo_telefone import TipoTelefone
 import pytest
 from pydantic import ValidationError
+
+from src.enum.tipo_telefone import TipoTelefone
+
 from src.models.telefone import Telefone
+
 
 class Test_Telefone():
     
