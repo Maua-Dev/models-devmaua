@@ -5,6 +5,7 @@ from src.models.disciplina import Disciplina
 from pydantic import BaseModel
 from datetime import datetime, time
 
+
 class Aula(BaseModel):
     disciplina: Disciplina
     local: Sala

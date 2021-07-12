@@ -4,7 +4,8 @@ from src.models.contato import Contato
 from datetime import date
 from pydantic import BaseModel, validator
 
-class Pessoa(BaseModel):
+
+class Usuario(BaseModel):
     nome: str
     contato: Contato
     nascimento: date

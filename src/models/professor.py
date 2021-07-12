@@ -1,9 +1,9 @@
 from src.models.disciplina import Disciplina
-from src.models.pessoa import Pessoa
+from src.models.usuario import Usuario
 
 from pydantic import BaseModel
 
-class Professor(Pessoa, BaseModel):
+
+class Professor(Usuario, BaseModel):
     _id: str
     disciplinas: list[Disciplina]
-        
