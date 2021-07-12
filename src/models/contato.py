@@ -14,16 +14,16 @@ class Contato(BaseModel):
     def telefones_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Telefone is empty')
-        return v.title()
+        return v
 
     @validator('emails')
     def emails_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Emails is empty')
-        return v.title()
+        return v
 
     @validator('Endereco')
     def endereco_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Endereco is empty')
-        return v.title()
+        return v
