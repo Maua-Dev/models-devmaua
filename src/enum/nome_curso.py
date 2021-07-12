@@ -2,4 +2,4 @@ import enum
 
 
 class NomeCurso(enum.Enum):
-    pass
+    EngenhariaDaComputacao = 1
