@@ -6,6 +6,7 @@ from src.models.disciplina import Disciplina
 
 from pydantic import BaseModel, validator
 
+
 class Curso(BaseModel):
     tronco: Tronco
     disciplinas: list[Disciplina]

@@ -7,6 +7,7 @@ from src.models.aula import Aula
 
 from pydantic import BaseModel
 
+
 class Disciplina(BaseModel):
     codigo: str
     tipo: TipoDisciplina
@@ -17,4 +18,3 @@ class Disciplina(BaseModel):
     alunosMatriculados: list[Aluno]
     aulas: list[Aula]
     ofereceDp: bool
-    

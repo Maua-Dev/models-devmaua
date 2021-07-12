@@ -1,9 +1,10 @@
 import enum
 
+
 class Roles(enum.Enum):
     # Administrativo
     Administratvo = 1
-    
+
     # Professor
     Professor = 2
     ProfessorResponsavelDisciplina = 3
@@ -12,7 +13,7 @@ class Roles(enum.Enum):
     ResponsavelEvasao = 6
     ResponsavelPesquisa = 7
     ProfessorDiretor = 8
-    
+
     # Aluno
     Aluno = 9
     Responsavel = 10

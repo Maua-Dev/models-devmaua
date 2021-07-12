@@ -1,5 +1,6 @@
 import enum
 
+
 class TipoTelefone(enum.Enum):
     Residencial = 1
     Privado = 2
