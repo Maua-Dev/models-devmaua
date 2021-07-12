@@ -8,21 +8,21 @@ from pydantic import BaseModel, validator
 class Contato(BaseModel):
     telefones: list[Telefone]
     emails: list[Email]
-    endereco: list[Endereco]
+    enderecos: list[Endereco]
 
-    @validator('telefones')
+    @validator('telefones', check_fields=False)
     def telefones_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Telefone is empty')
         return v
 
-    @validator('emails')
+    @validator('emails', check_fields=False)
     def emails_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Emails is empty')
         return v
 
-    @validator('Endereco')
+    @validator('enderecos', check_fields=False)
     def endereco_is_not_empty(cls, v):
         if len(v) == 0:
             raise ValueError('Endereco is empty')
