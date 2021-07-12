@@ -1,5 +1,6 @@
 from src.enum.tipo_disciplina import TipoDisciplina
 from src.enum.semestralidade import Semestralidade
+from src.enum.codigo_disciplina import CodigoDisciplina
 
 from src.models.professor import Professor
 from src.models.aluno import Aluno
@@ -9,7 +10,7 @@ from pydantic import BaseModel
 
 
 class Disciplina(BaseModel):
-    codigo: str
+    codigo: CodigoDisciplina
     tipo: TipoDisciplina
     semestralidade: Semestralidade
     profOrientador: Professor
