@@ -14,7 +14,7 @@ class Disciplina(BaseModel):
     tipo: TipoDisciplina
     semestralidade: Semestralidade
     profOrientador: Professor
-    nome: str
+    nome: codigo.value
     professores: list[Professor]
     alunosMatriculados: list[Aluno]
     aulas: list[Aula]
