@@ -37,7 +37,7 @@ class RA(BaseModel):
     
     def toString(self):
         try:
-            v = str.format("%s.%s-%s" % (self.ano, self.numero, self.digito))
+            v = f"{self.ano}.{self.numero}-{self.digito}"
             return v
         except TypeError as e:
             print(e)
