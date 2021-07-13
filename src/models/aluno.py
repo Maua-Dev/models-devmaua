@@ -1,6 +1,7 @@
 from src.enum.periodo import Periodo
 from src.enum.codigo_disciplina import CodigoDisciplina
 from src.enum.nome_curso import NomeCurso
+from src.enum.roles import Roles
 
 from src.models.usuario import Usuario
 from src.models.ra import RA
@@ -17,6 +18,7 @@ class Aluno(Usuario, BaseModel):
     periodo: Periodo
     listaDPs: Optional[list[CodigoDisciplina]]
     hasDP: bool
+    roles: list[Roles] = [Roles.Aluno]
 
     @root_validator
     def serie_is_valid(cls, v):

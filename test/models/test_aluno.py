@@ -42,7 +42,6 @@ class Test_Aluno():
         aluno = Aluno(nome='jorge do teste',
                           contato = contato,
                           nascimento='1999-02-23',
-                          roles=[Roles.Aluno],
                           ra = ra,
                           curso = NomeCurso.EngenhariaDaComputacao,
                           serie = 3,
@@ -51,6 +50,7 @@ class Test_Aluno():
                           listaDPs=[],
                           hasDP=False)
         
+        assert aluno.roles == [Roles.Aluno]
         assert aluno.ra.ano == '19'
         assert aluno.ra.numero == '02009'
         assert aluno.ra.digito == '0'
@@ -85,7 +85,6 @@ class Test_Aluno():
             aluno = Aluno(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Aluno],
                             ra = ra,
                             curso = NomeCurso.EngenhariaDaComputacao,
                             serie = 3,
@@ -118,7 +117,6 @@ class Test_Aluno():
             aluno = Aluno(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Aluno],
                             ra = ra,
                             curso = NomeCurso.EngenhariaDaComputacao,
                             serie = 6,
@@ -151,7 +149,6 @@ class Test_Aluno():
             aluno = Aluno(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Aluno],
                             ra = ra,
                             curso = NomeCurso.EngenhariaDaComputacao,
                             serie = 3,
@@ -184,7 +181,6 @@ class Test_Aluno():
             aluno = Aluno(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Aluno],
                             ra = ra,
                             curso = NomeCurso.EngenhariaDaComputacao,
                             serie = 3,

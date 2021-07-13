@@ -1,6 +1,7 @@
 from src.enum.codigo_disciplina import CodigoDisciplina
 from src.enum.tronco import Tronco
 from src.enum.nome_curso import NomeCurso
+from src.enum.roles import Roles
 
 from src.models.usuario import Usuario
 
@@ -12,6 +13,7 @@ class Professor(Usuario, BaseModel):
     troncos: list[Tronco]
     cursos: list[NomeCurso]
     disciplinas: list[CodigoDisciplina]
+    roles: list[Roles] = [Roles.Professor]
     
     @validator('troncos', check_fields=False)
     def troncos_is_not_empty(cls, v):

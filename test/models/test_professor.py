@@ -38,12 +38,12 @@ class Test_Professor():
         professor = Professor(nome='jorge do teste',
                           contato = contato,
                           nascimento='1999-02-23',
-                          roles=[Roles.Professor],
                           ID='0002',
                           troncos=[Tronco.Eletrica],
                           cursos=[NomeCurso.EngenhariaDaComputacao],
                           disciplinas=[CodigoDisciplina.ECM251])
         
+        assert professor.roles == [Roles.Professor]
         assert professor.ID == '0002'
         assert professor.troncos == [Tronco.Eletrica]
         assert professor.cursos == [NomeCurso.EngenhariaDaComputacao]
@@ -70,7 +70,6 @@ class Test_Professor():
             professor = Professor(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Professor],
                             ID=None,
                             troncos=[Tronco.Eletrica],
                             cursos=[NomeCurso.EngenhariaDaComputacao],
@@ -97,7 +96,6 @@ class Test_Professor():
             professor = Professor(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Professor],
                             ID='0002',
                             troncos=[],
                             cursos=[NomeCurso.EngenhariaDaComputacao],
@@ -124,7 +122,6 @@ class Test_Professor():
             professor = Professor(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Professor],
                             ID='0002',
                             troncos=[Tronco.Eletrica],
                             cursos=[],
@@ -151,7 +148,6 @@ class Test_Professor():
             professor = Professor(nome='jorge do teste',
                             contato = contato,
                             nascimento='1999-02-23',
-                            roles=[Roles.Professor],
                             ID='0002',
                             troncos=[Tronco.Eletrica],
                             cursos=[NomeCurso.EngenhariaDaComputacao],
