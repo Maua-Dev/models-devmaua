@@ -25,10 +25,14 @@ class Atividade(BaseModel):
         prazo = v.get('prazo')
         envios = v.get('numeroDeEnvios')
         tentativasPermitidas = v.get('tentativasPermitidas')
+        entregue = v.get('entregue')
+        status = v.get('status')
         if entrega > prazo:
             raise ValueError('data de entrega apos o prazo final')
         if envios > tentativasPermitidas:
             raise ValueError('numero de envios excede a quantidade permitida')
+        if ((entregue == True) and (status == StatusAvaliacao.NaoEnviado)) or ((entregue == False) and (status != StatusAvaliacao.NaoEnviado)):
+            raise ValueError('status de entrega invalido')
         return v
     
     @validator('alunos', check_fields=False)
