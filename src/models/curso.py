@@ -14,11 +14,14 @@ class Curso(BaseModel):
     nome: NomeCurso
     duracao: int
     
-    def nome(self):
+    def _nome(self):
         return self.nome.value.title()
     
-    def tronco(self):
+    def _tronco(self):
         return self.tronco.value.title()
+    
+    def _periodo(self):
+        return self.periodo.value
 
     @root_validator
     def duracao_is_valid(cls, v):
