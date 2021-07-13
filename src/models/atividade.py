@@ -54,3 +54,10 @@ class Atividade(BaseModel):
         self.status = StatusAvaliacao.Enviado
         self.numeroDeEnvios += 1
         self.dataEnvio = datetime.now()
+        self.entregue = True
+        if (self.dataEnvio > self.prazo):
+            raise ValueError('data de entrega apos o prazo final')
+        if self.numeroDeEnvios > self.tentativasPermitidas:
+            raise ValueError('numero de envios excede a quantidade permitida')
+        if ((self.entregue == True) and (self.status == StatusAvaliacao.NaoEnviado)) or ((self.entregue == False) and (self.status != StatusAvaliacao.NaoEnviado)):
+            raise ValueError('status de entrega invalido')
