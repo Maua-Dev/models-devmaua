@@ -23,5 +23,9 @@ class Usuario(BaseModel):
         if len(v) == 0:
             raise ValueError('roles is empty')
         return v
-
     
+    @validator('nascimento')
+    def year_is_valid(cls, v):
+        if v.year > (datetime.now().year - 15):
+            raise ValueError('ano invalido')
+        return v
