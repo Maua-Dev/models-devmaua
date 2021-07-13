@@ -3,18 +3,18 @@ Repositório usado para armazenar a base de classes/models e enums que serão us
 
 ## Pendencias
 - Sala:
-	-- Campus de SP, quais blocos
-	-- Levantar todas as salas validas
-	-- Levantar todos os tipos de sala (enum)
+	- Campus de SP, quais blocos
+	- Levantar todas as salas validas
+	- Levantar todos os tipos de sala (enum)
 
 - Tronco:
-	-- Levantar todos os troncos
+	- Levantar todos os troncos
 
 - Cursos:
-	-- Levantar todos os cursos
+	- Levantar todos os cursos
 
 - Disciplina:
-	-- Levantar todos os codigos de disciplinas
+	- Levantar todos os codigos de disciplinas
 
 - Professor:
-	-- Formatação do ID(é ese nome mesmo?)
+	- Formatação do ID(é ese nome mesmo?)
