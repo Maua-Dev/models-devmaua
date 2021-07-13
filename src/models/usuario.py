@@ -25,6 +25,7 @@ class Usuario(BaseModel):
         return v
     
     @validator('nascimento')
+    # Assume-se que nenhum usuario da faculdade tem menos de 15 anos
     def year_is_valid(cls, v):
         if v.year > (datetime.now().year - 15):
             raise ValueError('ano invalido')
