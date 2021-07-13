@@ -22,3 +22,6 @@ Repositório usado para armazenar a base de classes/models e enums que serão us
 - Administrativo
 	- Levantar todos os cargos
 	- Levantar todos os setores
+
+- Atividade
+	- Levantar todos os tipos de atividade
