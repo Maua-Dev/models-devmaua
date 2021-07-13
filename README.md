@@ -18,3 +18,7 @@ Repositório usado para armazenar a base de classes/models e enums que serão us
 
 - Professor:
 	- Formatação do ID(é esse nome mesmo?)
+
+- Administrativo
+	- Levantar todos os cargos
+	- Levantar todos os setores
