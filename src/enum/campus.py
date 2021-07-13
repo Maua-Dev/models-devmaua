@@ -1,5 +1,5 @@
 import enum
 
 class Campus(enum.Enum):
-    SP = 1
-    SCS = 2
+    SP = 'São Paulo'
+    SCS = 'São Caetano do Sul'
