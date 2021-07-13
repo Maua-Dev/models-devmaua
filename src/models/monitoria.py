@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from datetime import time, date, datetime
 from typing import Optional
 
@@ -16,6 +16,12 @@ class Monitoria(BaseModel):
     terminoDoPrograma: date
     descricao: Optional[str]
     atendimentos: list[datetime]
+    
+    @validator('professorOrientador')
+    def professorOrientador_is_not_empty(cls, v):
+        if len(v.replace(' ', '')) == 0 or v == None:
+            raise ValueError('ID do Professor Orientador esta vazio')
+        return v
     
     def criarAtendimento(self, horario: datetime):
         self.atendimentos.append(horario)
