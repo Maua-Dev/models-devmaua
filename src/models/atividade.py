@@ -16,7 +16,7 @@ class Atividade(BaseModel):
     dataEnvio: datetime = None
     numeroDeEnvios: int = 0
     tentativasPermitidas: int
-    status: Optional[StatusAvaliacao]
+    status: StatusAvaliacao = StatusAvaliacao.NaoEnviado
     nota: Optional[float]
     
     @root_validator
@@ -27,7 +27,7 @@ class Atividade(BaseModel):
         tentativasPermitidas = v.get('tentativasPermitidas')
         entregue = v.get('entregue')
         status = v.get('status')
-        if entrega > prazo:
+        if (entrega != None) and (entrega > prazo):
             raise ValueError('data de entrega apos o prazo final')
         if envios > tentativasPermitidas:
             raise ValueError('numero de envios excede a quantidade permitida')
@@ -41,8 +41,16 @@ class Atividade(BaseModel):
             raise ValueError('alunos is empty')
         return v
     
+    def set_nota(self, nota:float):
+        self.nota = nota
+        
     def nota_decimal(self):
-        return self.nota/100
+        return self.nota/10
     
     def _status(self):
         return self.status.value
+    
+    def _entrega(self):
+        self.status = StatusAvaliacao.Enviado
+        self.numeroDeEnvios += 1
+        self.dataEnvio = datetime.now()
