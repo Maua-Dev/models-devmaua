@@ -1,8 +1,9 @@
+from datetime import date, datetime
+from pydantic import BaseModel, validator
+import re
+
 from src.enum.roles import Roles
 from src.models.contato import Contato
-
-from datetime import date
-from pydantic import BaseModel, validator
 
 
 class Usuario(BaseModel):
@@ -16,3 +17,11 @@ class Usuario(BaseModel):
         if len(v) == 0:
             raise ValueError('Nome is empty')
         return v.title()
+    
+    @validator('roles', check_fields=False)
+    def roles_is_not_empty(cls, v):
+        if len(v) == 0:
+            raise ValueError('roles is empty')
+        return v
+
+    
