@@ -14,8 +14,10 @@ class Disciplina(BaseModel):
     tipo: TipoDisciplina
     semestralidade: Semestralidade
     profOrientador: Professor
-    nome: codigo.value
     professores: list[Professor]
     alunosMatriculados: list[Aluno]
     aulas: list[Aula]
     ofereceDp: bool
+    
+    def nome(self):
+        return self.codigo.value
