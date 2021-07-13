@@ -17,4 +17,4 @@ Repositório usado para armazenar a base de classes/models e enums que serão us
 	- Levantar todos os codigos de disciplinas
 
 - Professor:
-	- Formatação do ID(é ese nome mesmo?)
+	- Formatação do ID(é esse nome mesmo?)
