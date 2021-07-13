@@ -15,6 +15,12 @@ class Professor(Usuario, BaseModel):
     disciplinas: list[CodigoDisciplina]
     roles: list[Roles] = [Roles.Professor]
     
+    @validator('ID')
+    def ID_is_not_empty(cls, v):
+        if len(v.replace(' ', '')) == 0 or v == None:
+            raise ValueError('ID esta vazio')
+        return v
+    
     @validator('troncos', check_fields=False)
     def troncos_is_not_empty(cls, v):
         if len(v) == 0:
