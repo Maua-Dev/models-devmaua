@@ -4,7 +4,7 @@ from src.enum.nome_curso import NomeCurso
 
 from src.models.disciplina import Disciplina
 
-from pydantic import BaseModel
+from pydantic import BaseModel, root_validator
 
 
 class Curso(BaseModel):
@@ -16,3 +16,14 @@ class Curso(BaseModel):
     
     def nome(self):
         return self.nome.value.title()
+    
+    def tronco(self):
+        return self.tronco.value.title()
+
+    @root_validator
+    def duracao_is_valid(cls, v):
+        periodo = v.get('periodo')
+        duracao = v.get('duracao')
+        if ((periodo == Periodo.Diurno and (duracao<1 or duracao>5)) or (periodo == Periodo.Noturno and (duracao<1 or duracao>6))):
+            raise ValueError('duracao invalida')
+        return v
