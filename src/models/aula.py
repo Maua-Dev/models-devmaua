@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 
 from src.enum.codigo_disciplina import CodigoDisciplina
 
@@ -13,3 +13,7 @@ class Aula(BaseModel):
     horario: datetime
     duracao: time
     professor: Professor
+
+    def termino(self):
+        termino = self.horario + timedelta(hours=self.duracao.hour, minutes=self.duracao.minute)
+        return str(termino)
