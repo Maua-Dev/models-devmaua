@@ -1,6 +1,3 @@
-import pytest
-from pydantic import ValidationError
-
 from src.enum.tipo_email import TipoEmail
 from src.enum.tipo_telefone import TipoTelefone
 from src.enum.tipo_endereco import TipoEndereco
