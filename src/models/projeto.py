@@ -24,6 +24,12 @@ class Projeto(BaseModel):
             raise ValueError('nome esta vazio')
         return v
     
+    @validator('professorOrientador')
+    def professorOrientador_is_not_empty(cls, v):
+        if len(v.replace(' ', '')) == 0 or v == None:
+            raise ValueError('ID do Professor Orientador esta vazio')
+        return v
+    
     @validator('participantes', check_fields=False)
     def participantes_is_not_empty(cls, v):
         if len(v) == 0:
