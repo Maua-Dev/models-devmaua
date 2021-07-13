@@ -4,7 +4,7 @@ from src.enum.nome_curso import NomeCurso
 
 from src.models.disciplina import Disciplina
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 
 
 class Curso(BaseModel):
@@ -13,3 +13,6 @@ class Curso(BaseModel):
     periodo: Periodo
     nome: NomeCurso
     duracao: int
+    
+    def nome(self):
+        return self.nome.value.title()
