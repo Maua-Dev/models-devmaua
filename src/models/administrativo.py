@@ -12,7 +12,7 @@ class Administrativo(Usuario, BaseModel):
     cargo: Cargo
     setor: Setor
     campus: Campus
-    roles: list[Roles] = [Roles.Administratvo]
+    roles: list[Roles] = [Roles.Administrativo]
     
     @validator('ID')
     def ID_is_not_empty(cls, v):
