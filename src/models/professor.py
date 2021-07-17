@@ -1,3 +1,6 @@
+from pydantic import BaseModel, validator
+from typing import Optional
+
 from src.enum.codigo_disciplina import CodigoDisciplina
 from src.enum.tronco import Tronco
 from src.enum.nome_curso import NomeCurso
@@ -5,14 +8,12 @@ from src.enum.roles import Roles
 
 from src.models.usuario import Usuario
 
-from pydantic import BaseModel, validator
-
 
 class Professor(Usuario, BaseModel):
     ID: str
     troncos: list[Tronco]
     cursos: list[NomeCurso]
-    disciplinas: list[CodigoDisciplina]
+    disciplinas: Optional[list[CodigoDisciplina]]
     roles: list[Roles] = [Roles.Professor]
     
     @validator('ID')
