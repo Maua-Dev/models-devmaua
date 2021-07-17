@@ -2,7 +2,6 @@ from src.enum.grupos import Grupo
 from src.enum.tipo_email import TipoEmail
 from src.enum.tipo_telefone import TipoTelefone
 from src.enum.tipo_endereco import TipoEndereco
-from src.enum.roles import Roles
 from src.enum.nome_curso import NomeCurso
 from src.enum.periodo import Periodo
 from src.enum.codigo_disciplina import CodigoDisciplina
@@ -15,7 +14,7 @@ from src.models.telefone import Telefone
 from src.models.endereco import Endereco
 from src.models.ra import RA
 
-class Test_Aluno():
+class Test_AlunoRepresentante():
     
     def test_create_instance_model(self):
         
