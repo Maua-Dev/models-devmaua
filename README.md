@@ -25,3 +25,6 @@ Repositório usado para armazenar a base de classes/models e enums que serão us
 
 - Atividade
 	- Levantar todos os tipos de atividade
+
+- Grupo
+	- Levantar todos os grupos
