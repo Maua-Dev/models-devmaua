@@ -3,7 +3,7 @@ import enum
 
 class Roles(enum.Enum):
     # Administrativo
-    Administratvo = 1
+    Administrativo = 1
 
     # Professor
     Professor = 2
