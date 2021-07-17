@@ -88,7 +88,7 @@ class Test_Atividade():
                           hasDP=False)
         
         atividade = Atividade(tipo=TipoAtividade.Prova,
-                              prazo='2021-07-15 20:00',
+                              prazo='2042-07-15 20:00',
                               alunos=[aluno],
                               tentativasPermitidas=3)
         
