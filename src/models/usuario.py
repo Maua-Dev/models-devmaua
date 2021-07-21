@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from pydantic import BaseModel, validator
 import re
+from typing import Optional
 
 from src.enum.roles import Roles
 from src.models.contato import Contato
@@ -11,6 +12,7 @@ class Usuario(BaseModel):
     contato: Contato
     nascimento: date
     roles: list[Roles]
+    timestamp: Optional[datetime]
 
     @validator('nome')
     def nome_is_not_empty(cls, v):
