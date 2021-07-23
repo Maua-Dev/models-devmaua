@@ -8,6 +8,10 @@ setup(
     url='https://github.com/Maua-Dev/models-devmaua',
     license='',
     author='Dev Comunity Mauá',
+    install_requires=[
+          'pydantic',
+      ],
+
     author_email='',
     description=''
 )
