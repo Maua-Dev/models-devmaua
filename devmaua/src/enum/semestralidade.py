@@ -2,7 +2,7 @@ import enum
 
 
 class Semestralidade(enum.Enum):
-    S1 = 1
-    S2 = 2
-    A = 3
-    Ferias = 4
+    PRIMEIRO_SEMESTRE = 1
+    SEGUNDO_SEMESTRE = 2
+    ANUAL = 3
+    FERIAS = 4

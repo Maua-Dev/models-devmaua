@@ -2,6 +2,6 @@ import enum
 
 
 class TipoDisciplina(enum.Enum):
-    Pae = 1
-    Graduacao = 2
-    PosGraduacao = 3
+    PAE = 1
+    GRADUACAO = 2
+    POS_GRADUACAO = 3

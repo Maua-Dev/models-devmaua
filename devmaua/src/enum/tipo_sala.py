@@ -2,4 +2,4 @@ import enum
 
 
 class TipoSala(enum.Enum):
-    Laboratorio = 1
+    LABORATORIO = 1

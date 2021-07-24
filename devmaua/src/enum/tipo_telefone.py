@@ -2,7 +2,7 @@ import enum
 
 
 class TipoTelefone(enum.Enum):
-    Residencial = 1
-    Privado = 2
-    Trabalho = 3
-    Ramal = 4
+    RESIDENCIAL = 1
+    PRIVADO = 2
+    TRABALHO = 3
+    RAMAL = 4

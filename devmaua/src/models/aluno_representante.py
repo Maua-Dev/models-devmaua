@@ -8,6 +8,6 @@ from devmaua.src.models.aluno import Aluno
 
 
 class AlunoRepresentante(Aluno, BaseModel):
-    roles: list[Roles] = [Roles.Aluno, Roles.Representante]
+    roles: list[Roles] = [Roles.ALUNO, Roles.REPRESENTANTE]
     cargo: CargoRepresentante
     grupoResponsavel: Grupo

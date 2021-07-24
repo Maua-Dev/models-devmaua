@@ -2,7 +2,7 @@ import enum
 
 class StatusAvaliacao(enum.Enum):
     
-    Avaliado = 'Avaliado'
-    Enviado = 'Enviado para avaliação'
-    SemNotas = 'Não há notas'
-    NaoEnviado = 'Não enviado'
+    AVALIADO = 'Avaliado'
+    ENVIADO = 'Enviado para avaliação'
+    SEM_NOTAS = 'Não há notas'
+    NAO_ENVIADO = 'Não enviado'

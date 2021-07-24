@@ -1,9 +1,9 @@
 import enum
 
 class TipoAtividade(enum.Enum):
-    Moodle = 'Moodle'
-    AtvSala = 'Atividade em Sala'
-    Prova = 'Prova'
-    TrabSemestral = 'Trabalho Semestral'
-    TrabEmGrupo = 'Trabalho em Grupo'
-    Kahoot = 'Kahoot'
+    MOODLE = 'Moodle'
+    ATIVIDADE_DE_SALA = 'Atividade em Sala'
+    PROVA = 'Prova'
+    TRABALHO_SEMESTRAL = 'Trabalho Semestral'
+    TRABALHO_EM_GRUPO = 'Trabalho em Grupo'
+    KAHOOT = 'Kahoot'

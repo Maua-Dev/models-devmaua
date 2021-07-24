@@ -41,7 +41,7 @@ class Projeto(BaseModel):
         participantes = v.get('participantes')
         id_orientador = v.get('professorOrientador')
         for x in participantes:
-            if Roles.Professor in x.roles:
+            if Roles.PROFESSOR in x.roles:
                 if x.ID == id_orientador:
                     return v
         raise ValueError('orientador not in participantes')
@@ -49,14 +49,14 @@ class Projeto(BaseModel):
     def getProfessores(self):
         profs = []
         for x in self.participantes:
-            if Roles.Professor in x.roles:
+            if Roles.PROFESSOR in x.roles:
                 profs.append(x)
         return profs
     
     def getAlunos(self):
         alunos = []
         for x in self.participantes:
-            if Roles.Aluno in x.roles:
+            if Roles.ALUNO in x.roles:
                 alunos.append(x)
         return alunos
     

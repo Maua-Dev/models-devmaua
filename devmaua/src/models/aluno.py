@@ -18,13 +18,13 @@ class Aluno(Usuario, BaseModel):
     periodo: Periodo
     listaDPs: Optional[list[CodigoDisciplina]]
     hasDP: bool
-    roles: list[Roles] = [Roles.Aluno]
+    roles: list[Roles] = [Roles.ALUNO]
 
     @root_validator
     def serie_is_valid(cls, v):
         periodo = v.get('periodo')
         serie = v.get('serie')
-        if (((serie < 1 or serie > 5) and (periodo == Periodo.Diurno)) or ((serie < 1 or serie > 6) and (periodo == Periodo.Noturno))):
+        if (((serie < 1 or serie > 5) and (periodo == Periodo.DIURNO)) or ((serie < 1 or serie > 6) and (periodo == Periodo.NOTURNO))):
             raise ValueError('Serie invalida')
         return v
     

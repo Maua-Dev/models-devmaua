@@ -7,4 +7,4 @@ from devmaua.src.models.projeto import Projeto
 
 class AlunoIniciacao(Aluno, BaseModel):
     projeto: Projeto
-    roles: list[Roles] = [Roles.Aluno, Roles.AlunoIC]
+    roles: list[Roles] = [Roles.ALUNO, Roles.ALUNO_IC]

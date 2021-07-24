@@ -21,13 +21,13 @@ class Test_Aula():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -38,12 +38,12 @@ class Test_Aula():
                           contato = contato,
                           nascimento='1999-02-23',
                           ID='0002',
-                          troncos=[Tronco.Eletrica],
-                          cursos=[NomeCurso.EngenhariaDaComputacao],
+                          troncos=[Tronco.ELETRICA],
+                          cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                           disciplinas=[CodigoDisciplina.ECM251])
         sala = Sala(bloco='U',
                     numeroDaSala=22,
-                    tipo=[TipoSala.Laboratorio],
+                    tipo=[TipoSala.LABORATORIO],
                     campus = Campus.SCS)
         
         aula = Aula(disciplina=CodigoDisciplina.ECM251,

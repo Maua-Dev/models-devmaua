@@ -25,13 +25,13 @@ class Test_Projeto():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -44,8 +44,8 @@ class Test_Projeto():
                           contato = contato,
                           nascimento='1999-02-23',
                           ID='0002',
-                          troncos=[Tronco.Eletrica],
-                          cursos=[NomeCurso.EngenhariaDaComputacao],
+                          troncos=[Tronco.ELETRICA],
+                          cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                           disciplinas=[CodigoDisciplina.ECM251])
         
         ra = RA(ano='19',
@@ -55,10 +55,10 @@ class Test_Projeto():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         
@@ -93,13 +93,13 @@ class Test_Projeto():
     def test_validator_error_nomeIsEmpty(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -110,8 +110,8 @@ class Test_Projeto():
                             contato = contato,
                             nascimento='1999-02-23',
                             ID='0002',
-                            troncos=[Tronco.Eletrica],
-                            cursos=[NomeCurso.EngenhariaDaComputacao],
+                            troncos=[Tronco.ELETRICA],
+                            cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                             disciplinas=[CodigoDisciplina.ECM251])
             ra = RA(ano='19',
                     numero='02009',
@@ -120,10 +120,10 @@ class Test_Projeto():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             
@@ -153,13 +153,13 @@ class Test_Projeto():
     def test_validator_error_orientadorNotInParticipantes(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -170,8 +170,8 @@ class Test_Projeto():
                             contato = contato,
                             nascimento='1999-02-23',
                             ID='0002',
-                            troncos=[Tronco.Eletrica],
-                            cursos=[NomeCurso.EngenhariaDaComputacao],
+                            troncos=[Tronco.ELETRICA],
+                            cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                             disciplinas=[CodigoDisciplina.ECM251])
             ra = RA(ano='19',
                     numero='02009',
@@ -180,10 +180,10 @@ class Test_Projeto():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             

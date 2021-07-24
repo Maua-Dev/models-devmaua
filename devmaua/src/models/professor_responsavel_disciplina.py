@@ -7,5 +7,5 @@ from devmaua.src.models.disciplina import Disciplina
 
 
 class ProfessorResponsavel(Professor, BaseModel):
-    roles: list[Roles] = [Roles.Professor, Roles.ProfessorResponsavelDisciplina]
+    roles: list[Roles] = [Roles.PROFESSOR, Roles.PROFESSOR_RESPONSAVEL_DISCIPLINA]
     disciplinaResponsavel: Disciplina

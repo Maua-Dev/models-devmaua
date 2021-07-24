@@ -3,22 +3,22 @@ import enum
 
 class Roles(enum.Enum):
     # Administrativo
-    Administrativo = 1
+    ADMINISTRATIVO = 1
 
     # Professor
-    Professor = 2
-    ProfessorResponsavelDisciplina = 3
-    Coordenador = 4
-    ProfessorIC = 5
-    ResponsavelEvasao = 6
-    ResponsavelPesquisa = 7
-    ProfessorDiretor = 8
+    PROFESSOR = 2
+    PROFESSOR_RESPONSAVEL_DISCIPLINA = 3
+    COORDENADOR = 4
+    PROFESSOR_IC = 5
+    RESPONSAVEL_EVASAO = 6
+    RESPONSAVEL_PESQUISA = 7
+    PROFESSOR_DIRETOR = 8
 
     # Aluno
-    Aluno = 9
-    Responsavel = 10
-    AlunoPos = 11
-    Representante = 12
-    MonitorDisciplina = 13
-    MonitorProjeto = 14
-    AlunoIC = 15
+    ALUNO = 9
+    RESPONSAVEL = 10
+    ALUNO_POS = 11
+    REPRESENTANTE = 12
+    MONITOR_DISCIPLINA = 13
+    MONITOR_PROJETO = 14
+    ALUNO_IC = 15

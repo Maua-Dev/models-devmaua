@@ -6,4 +6,4 @@ from devmaua.src.models.professor import Professor
 
 
 class ResponsavelEvasao(Professor, BaseModel):
-    roles: list[Roles] = [Roles.Professor, Roles.ResponsavelEvasao]
+    roles: list[Roles] = [Roles.PROFESSOR, Roles.RESPONSAVEL_EVASAO]
