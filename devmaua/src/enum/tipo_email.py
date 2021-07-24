@@ -2,6 +2,6 @@ import enum
 
 
 class TipoEmail(enum.Enum):
-    Privado = 1
-    Trabalho = 2
-    Universitario = 3
+    PRIVADO = 1
+    TRABALHO = 2
+    UNIVERSITARIO = 3

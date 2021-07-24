@@ -11,22 +11,22 @@ class Test_Endereco():
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
+                       tipo = TipoEndereco.RESIDENCIAL)
         assert end.logradouro == 'rua de tal'
         assert end.numero == 20
         assert end.cep == '00000-000'
-        assert end.tipo == TipoEndereco.Residencial
+        assert end.tipo == TipoEndereco.RESIDENCIAL
         
     def test_validator_error_numero(self):
         with pytest.raises(ValidationError) as error_info:
             end = Endereco(logradouro='rua de tal',
                        numero = -20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
+                       tipo = TipoEndereco.RESIDENCIAL)
             
     def test_validator_error_cep(self):
         with pytest.raises(ValidationError) as error_info:
             end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='a',
-                       tipo = TipoEndereco.Residencial)
+                       tipo = TipoEndereco.RESIDENCIAL)

@@ -2,5 +2,5 @@ import enum
 
 
 class Periodo(enum.Enum):
-    Diurno = 'Diurno'
-    Noturno = 'Noturno'
+    DIURNO = 'Diurno'
+    NOTURNO = 'Noturno'

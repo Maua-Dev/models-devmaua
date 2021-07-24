@@ -24,13 +24,13 @@ class Test_Atividade():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -44,14 +44,14 @@ class Test_Atividade():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         
-        atividade = Atividade(tipo=TipoAtividade.Prova,
+        atividade = Atividade(tipo=TipoAtividade.PROVA,
                               prazo='2021-07-15 20:00',
                               alunos=[aluno],
                               tentativasPermitidas=3)
@@ -60,13 +60,13 @@ class Test_Atividade():
     def test_instance_methods(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -80,14 +80,14 @@ class Test_Atividade():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         
-        atividade = Atividade(tipo=TipoAtividade.Prova,
+        atividade = Atividade(tipo=TipoAtividade.PROVA,
                               prazo='2042-07-15 20:00',
                               alunos=[aluno],
                               tentativasPermitidas=3)
@@ -98,7 +98,7 @@ class Test_Atividade():
         assert atividade._status() == 'Não enviado'
         
         atividade._entrega()
-        assert atividade.status == StatusAvaliacao.Enviado
+        assert atividade.status == StatusAvaliacao.ENVIADO
         assert atividade.numeroDeEnvios == 1
         #assert atividade.dataEnvio == datetime.now() # Máquina do github da erro pelo tempo de isntanciar e verificar
         
@@ -106,13 +106,13 @@ class Test_Atividade():
     def test_validator_error_dataEntrega(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -126,14 +126,14 @@ class Test_Atividade():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             
-            atividade = Atividade(tipo=TipoAtividade.Prova,
+            atividade = Atividade(tipo=TipoAtividade.PROVA,
                                 prazo='2021-07-15 20:00',
                                 alunos=[aluno],
                                 tentativasPermitidas=3,
@@ -143,13 +143,13 @@ class Test_Atividade():
     def test_validator_error_numeroDeTentativas(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -163,14 +163,14 @@ class Test_Atividade():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             
-            atividade = Atividade(tipo=TipoAtividade.Prova,
+            atividade = Atividade(tipo=TipoAtividade.PROVA,
                                 prazo='2021-07-15 20:00',
                                 alunos=[aluno],
                                 tentativasPermitidas=3,

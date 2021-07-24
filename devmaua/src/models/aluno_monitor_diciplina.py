@@ -7,4 +7,4 @@ from devmaua.src.models.monitoria import Monitoria
 
 class AlunoMonitorDisciplina(Aluno, BaseModel):
     monitoria: Monitoria
-    roles: list[Roles] = [Roles.Aluno, Roles.MonitorDisciplina]
+    roles: list[Roles] = [Roles.ALUNO, Roles.MONITOR_DISCIPLINA]

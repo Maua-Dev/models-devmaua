@@ -18,13 +18,13 @@ class Test_Administrativo():
     
     def test_create_instance_model(self):
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -36,8 +36,8 @@ class Test_Administrativo():
                              contato = contato,
                              nascimento='1999-02-23',
                              ID='ABC01',
-                             cargo=Cargo.Contador,
-                             setor=Setor.Financeiro,
+                             cargo=Cargo.CONTADOR,
+                             setor=Setor.FINANCEIRO,
                              campus=Campus.SCS)
         
         assert adm._campus() == 'São Caetano Do Sul'
@@ -47,13 +47,13 @@ class Test_Administrativo():
     def test_validator_error_IDEmpty(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                        tipo=TipoEmail.Privado,
+                        tipo=TipoEmail.PRIVADO,
                         prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -65,6 +65,6 @@ class Test_Administrativo():
                                 contato = contato,
                                 nascimento='1999-02-23',
                                 ID=' ',
-                                cargo=Cargo.Contador,
-                                setor=Setor.Financeiro,
+                                cargo=Cargo.CONTADOR,
+                                setor=Setor.FINANCEIRO,
                                 campus=Campus.SCS)

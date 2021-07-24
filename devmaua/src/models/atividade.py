@@ -16,7 +16,7 @@ class Atividade(BaseModel):
     dataEnvio: datetime = None
     numeroDeEnvios: int = 0
     tentativasPermitidas: int
-    status: StatusAvaliacao = StatusAvaliacao.NaoEnviado
+    status: StatusAvaliacao = StatusAvaliacao.NAO_ENVIADO
     nota: Optional[float]
     
     @root_validator
@@ -31,7 +31,7 @@ class Atividade(BaseModel):
             raise ValueError('data de entrega apos o prazo final')
         if envios > tentativasPermitidas:
             raise ValueError('numero de envios excede a quantidade permitida')
-        if ((entregue == True) and (status == StatusAvaliacao.NaoEnviado)) or ((entregue == False) and (status != StatusAvaliacao.NaoEnviado)):
+        if ((entregue == True) and (status == StatusAvaliacao.NAO_ENVIADO)) or ((entregue == False) and (status != StatusAvaliacao.NAO_ENVIADO)):
             raise ValueError('status de entrega invalido')
         return v
     
@@ -51,7 +51,7 @@ class Atividade(BaseModel):
         return self.status.value
     
     def _entrega(self):
-        self.status = StatusAvaliacao.Enviado
+        self.status = StatusAvaliacao.ENVIADO
         self.numeroDeEnvios += 1
         self.dataEnvio = datetime.now()
         self.entregue = True
@@ -59,5 +59,5 @@ class Atividade(BaseModel):
             raise ValueError('data de entrega apos o prazo final')
         if self.numeroDeEnvios > self.tentativasPermitidas:
             raise ValueError('numero de envios excede a quantidade permitida')
-        if ((self.entregue == True) and (self.status == StatusAvaliacao.NaoEnviado)) or ((self.entregue == False) and (self.status != StatusAvaliacao.NaoEnviado)):
+        if ((self.entregue == True) and (self.status == StatusAvaliacao.NAO_ENVIADO)) or ((self.entregue == False) and (self.status != StatusAvaliacao.NAO_ENVIADO)):
             raise ValueError('status de entrega invalido')

@@ -19,13 +19,13 @@ class Test_AlunoRepresentante():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -41,14 +41,14 @@ class Test_AlunoRepresentante():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False,
-                          cargo = CargoRepresentante.Titular,
+                          cargo = CargoRepresentante.TITULAR,
                           grupoResponsavel = Grupo.G1)
         
-        assert alunoRepresentante.cargo == CargoRepresentante.Titular
+        assert alunoRepresentante.cargo == CargoRepresentante.TITULAR
         assert alunoRepresentante.grupoResponsavel == Grupo.G1

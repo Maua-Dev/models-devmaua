@@ -11,25 +11,25 @@ class Test_Sala():
     def test_create_instance_model(self):
         sala = Sala(bloco='U',
                     numeroDaSala=22,
-                    tipo=[TipoSala.Laboratorio],
+                    tipo=[TipoSala.LABORATORIO],
                     campus = Campus.SCS)
         assert sala.bloco == 'U'
         assert sala.numeroDaSala == 22
-        assert sala.tipo == [TipoSala.Laboratorio]
+        assert sala.tipo == [TipoSala.LABORATORIO]
         assert sala.campus == Campus.SCS
         
     def test_validator_error_bloco(self):
         with pytest.raises(ValidationError) as error_info:
             sala = Sala(bloco='Z',
                         numeroDaSala=22,
-                        tipo=[TipoSala.Laboratorio],
+                        tipo=[TipoSala.LABORATORIO],
                         campus = Campus.SCS)
             
     def test_validator_error_numeroDaSala(self):
         with pytest.raises(ValidationError) as error_info:
             sala = Sala(bloco='U',
                         numeroDaSala=-22,
-                        tipo=[TipoSala.Laboratorio],
+                        tipo=[TipoSala.LABORATORIO],
                         campus = Campus.SCS)
             
     def test_validator_error_tipo(self):
@@ -43,5 +43,5 @@ class Test_Sala():
         with pytest.raises(ValidationError) as error_info:
             sala = Sala(bloco='U',
                         numeroDaSala=22,
-                        tipo=[TipoSala.Laboratorio],
+                        tipo=[TipoSala.LABORATORIO],
                         campus = Campus.SP)    

@@ -7,5 +7,5 @@ from devmaua.src.models.curso import Curso
 
 
 class Coordenador(Professor, BaseModel):
-    roles: list[Roles] = [Roles.Professor, Roles.Coordenador]
+    roles: list[Roles] = [Roles.PROFESSOR, Roles.COORDENADOR]
     cursoCoordenado: Curso

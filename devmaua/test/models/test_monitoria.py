@@ -30,13 +30,13 @@ class Test_Monitoria():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -47,8 +47,8 @@ class Test_Monitoria():
                           contato = contato,
                           nascimento='1999-02-23',
                           ID='0002',
-                          troncos=[Tronco.Eletrica],
-                          cursos=[NomeCurso.EngenhariaDaComputacao],
+                          troncos=[Tronco.ELETRICA],
+                          cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                           disciplinas=[CodigoDisciplina.ECM251])
         ra = RA(ano='19',
                 numero='02009',
@@ -57,15 +57,15 @@ class Test_Monitoria():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         sala = Sala(bloco='U',
                     numeroDaSala=22,
-                    tipo=[TipoSala.Laboratorio],
+                    tipo=[TipoSala.LABORATORIO],
                     campus = Campus.SCS)
         aula = Aula(disciplina=CodigoDisciplina.ECM251,
                     local=sala,
@@ -73,17 +73,17 @@ class Test_Monitoria():
                     duracao='01:40:00',
                     professor=professor)
         disciplina = Disciplina(codigo=CodigoDisciplina.ECM251,
-                                tipo=TipoDisciplina.Graduacao,
-                                semestralidade=Semestralidade.A,
+                                tipo=TipoDisciplina.GRADUACAO,
+                                semestralidade=Semestralidade.ANUAL,
                                 profOrientador=professor,
                                 professores=[professor],
                                 alunosMatriculados=[aluno],
                                 aulas=[aula],
                                 ofereceDp=True)
-        curso = Curso(tronco=Tronco.Eletrica,
+        curso = Curso(tronco=Tronco.ELETRICA,
                       disciplinas=[disciplina],
-                      periodo=Periodo.Diurno,
-                      nome=NomeCurso.EngenhariaDaComputacao,
+                      periodo=Periodo.DIURNO,
+                      nome=NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                       duracao=5)
         
         monitoria = Monitoria(disciplina=disciplina,
@@ -108,13 +108,13 @@ class Test_Monitoria():
         
     def test_metodos(self):
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -125,8 +125,8 @@ class Test_Monitoria():
                           contato = contato,
                           nascimento='1999-02-23',
                           ID='0002',
-                          troncos=[Tronco.Eletrica],
-                          cursos=[NomeCurso.EngenhariaDaComputacao],
+                          troncos=[Tronco.ELETRICA],
+                          cursos=[NomeCurso.ENGENHARIA_DA_COMPUTACAO],
                           disciplinas=[CodigoDisciplina.ECM251])
         ra = RA(ano='19',
                 numero='02009',
@@ -135,15 +135,15 @@ class Test_Monitoria():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         sala = Sala(bloco='U',
                     numeroDaSala=22,
-                    tipo=[TipoSala.Laboratorio],
+                    tipo=[TipoSala.LABORATORIO],
                     campus = Campus.SCS)
         aula = Aula(disciplina=CodigoDisciplina.ECM251,
                     local=sala,
@@ -151,17 +151,17 @@ class Test_Monitoria():
                     duracao='01:40:00',
                     professor=professor)
         disciplina = Disciplina(codigo=CodigoDisciplina.ECM251,
-                                tipo=TipoDisciplina.Graduacao,
-                                semestralidade=Semestralidade.A,
+                                tipo=TipoDisciplina.GRADUACAO,
+                                semestralidade=Semestralidade.ANUAL,
                                 profOrientador=professor,
                                 professores=[professor],
                                 alunosMatriculados=[aluno],
                                 aulas=[aula],
                                 ofereceDp=True)
-        curso = Curso(tronco=Tronco.Eletrica,
+        curso = Curso(tronco=Tronco.ELETRICA,
                       disciplinas=[disciplina],
-                      periodo=Periodo.Diurno,
-                      nome=NomeCurso.EngenhariaDaComputacao,
+                      periodo=Periodo.DIURNO,
+                      nome=NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                       duracao=5)
         
         monitoria = Monitoria(disciplina=disciplina,

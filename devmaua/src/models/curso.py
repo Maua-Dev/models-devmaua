@@ -27,6 +27,6 @@ class Curso(BaseModel):
     def duracao_is_valid(cls, v):
         periodo = v.get('periodo')
         duracao = v.get('duracao')
-        if ((periodo == Periodo.Diurno and (duracao<1 or duracao>5)) or (periodo == Periodo.Noturno and (duracao<1 or duracao>6))):
+        if ((periodo == Periodo.DIURNO and (duracao<1 or duracao>5)) or (periodo == Periodo.NOTURNO and (duracao<1 or duracao>6))):
             raise ValueError('duracao invalida')
         return v

@@ -2,4 +2,4 @@ import enum
 
 
 class NomeCurso(enum.Enum):
-    EngenhariaDaComputacao = 'Engenharia de Computação'
+    ENGENHARIA_DA_COMPUTACAO = 'Engenharia de Computação'

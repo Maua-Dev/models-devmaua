@@ -21,13 +21,13 @@ class Test_Aluno():
     def test_create_instance_model(self):
         
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -43,34 +43,34 @@ class Test_Aluno():
                           contato = contato,
                           nascimento='1999-02-23',
                           ra = ra,
-                          curso = NomeCurso.EngenhariaDaComputacao,
+                          curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                           serie = 3,
                           disciplinas=[CodigoDisciplina.ECM251],
-                          periodo=Periodo.Diurno,
+                          periodo=Periodo.DIURNO,
                           listaDPs=[],
                           hasDP=False)
         
-        assert aluno.roles == [Roles.Aluno]
+        assert aluno.roles == [Roles.ALUNO]
         assert aluno.ra.ano == '19'
         assert aluno.ra.numero == '02009'
         assert aluno.ra.digito == '0'
-        assert aluno.curso == NomeCurso.EngenhariaDaComputacao
+        assert aluno.curso == NomeCurso.ENGENHARIA_DA_COMPUTACAO
         assert aluno.serie == 3
         assert aluno.disciplinas == [CodigoDisciplina.ECM251]
-        assert aluno.periodo == Periodo.Diurno
+        assert aluno.periodo == Periodo.DIURNO
         assert aluno.listaDPs == []
         assert aluno.hasDP == False
         
     def test_validator_error_RA(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -86,23 +86,23 @@ class Test_Aluno():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             
     def test_validator_error_serie(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -118,23 +118,23 @@ class Test_Aluno():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 6,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=False)
             
     def test_validator_error_hasDP(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -150,23 +150,23 @@ class Test_Aluno():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[],
                             hasDP=True)
             
     def test_validator_error_listaDPs(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -182,9 +182,9 @@ class Test_Aluno():
                             contato = contato,
                             nascimento='1999-02-23',
                             ra = ra,
-                            curso = NomeCurso.EngenhariaDaComputacao,
+                            curso = NomeCurso.ENGENHARIA_DA_COMPUTACAO,
                             serie = 3,
                             disciplinas=[CodigoDisciplina.ECM251],
-                            periodo=Periodo.Diurno,
+                            periodo=Periodo.DIURNO,
                             listaDPs=[CodigoDisciplina.ECM251],
                             hasDP=False)

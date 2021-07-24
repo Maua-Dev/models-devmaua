@@ -15,13 +15,13 @@ class Test_Contato():
     
     def test_create_instance_model(self):
         email = Email(email='teste@teste.com',
-                      tipo=TipoEmail.Privado,
+                      tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
         end = Endereco(logradouro='rua de tal',
                        numero = 20,
                        cep='00000-000',
-                       tipo = TipoEndereco.Residencial)
-        tel = Telefone(tipo = TipoTelefone.Privado,
+                       tipo = TipoEndereco.RESIDENCIAL)
+        tel = Telefone(tipo = TipoTelefone.PRIVADO,
                        numero = '99999-9999',
                        ddd=11,
                        prioridade = 3)
@@ -30,10 +30,10 @@ class Test_Contato():
                           enderecos = [end])
         
         assert contato.emails[0].email == 'teste@teste.com'
-        assert contato.emails[0].tipo == TipoEmail.Privado
+        assert contato.emails[0].tipo == TipoEmail.PRIVADO
         assert contato.emails[0].prioridade == 1
         
-        assert contato.telefones[0].tipo == TipoTelefone.Privado
+        assert contato.telefones[0].tipo == TipoTelefone.PRIVADO
         assert contato.telefones[0].numero == '99999-9999'
         assert contato.telefones[0].ddd == 11
         assert contato.telefones[0]. prioridade == 3
@@ -41,15 +41,15 @@ class Test_Contato():
         assert contato.enderecos[0].logradouro == 'rua de tal'
         assert contato.enderecos[0].numero == 20
         assert contato.enderecos[0].cep == '00000-000'
-        assert contato.enderecos[0].tipo == TipoEndereco.Residencial
+        assert contato.enderecos[0].tipo == TipoEndereco.RESIDENCIAL
     
     def test_validator_error_email(self):
         with pytest.raises(ValidationError) as error_info:
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+                        tipo = TipoEndereco.RESIDENCIAL)
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -60,9 +60,9 @@ class Test_Contato():
     def test_validator_error_endereco(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                        tipo=TipoEmail.Privado,
+                        tipo=TipoEmail.PRIVADO,
                         prioridade = 1)
-            tel = Telefone(tipo = TipoTelefone.Privado,
+            tel = Telefone(tipo = TipoTelefone.PRIVADO,
                         numero = '99999-9999',
                         ddd=11,
                         prioridade = 3)
@@ -73,12 +73,12 @@ class Test_Contato():
     def test_validator_error_telefone(self):
         with pytest.raises(ValidationError) as error_info:
             email = Email(email='teste@teste.com',
-                        tipo=TipoEmail.Privado,
+                        tipo=TipoEmail.PRIVADO,
                         prioridade = 1)
             end = Endereco(logradouro='rua de tal',
                         numero = 20,
                         cep='00000-000',
-                        tipo = TipoEndereco.Residencial)
+                        tipo = TipoEndereco.RESIDENCIAL)
             contato = Contato(emails = [email],
                             telefones = [],
                             enderecos = [end])

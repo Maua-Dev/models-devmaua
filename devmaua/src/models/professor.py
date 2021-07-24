@@ -14,7 +14,7 @@ class Professor(Usuario, BaseModel):
     troncos: list[Tronco]
     cursos: list[NomeCurso]
     disciplinas: Optional[list[CodigoDisciplina]]
-    roles: list[Roles] = [Roles.Professor]
+    roles: list[Roles] = [Roles.PROFESSOR]
     
     @validator('ID')
     def ID_is_not_empty(cls, v):
