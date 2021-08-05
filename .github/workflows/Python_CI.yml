@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Enter the package directory
-      run: cd devmaua
+      run: ls
     - name: Runs tests
       run: pytest
     - name: Create coverage report
