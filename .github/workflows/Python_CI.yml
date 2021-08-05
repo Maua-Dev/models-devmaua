@@ -23,10 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Runs tests
-      run: pytest
+      run: python -m pytest
     - name: Create coverage report
       run: |
-        pytest --cov=./
+        python -m pytest --cov=./
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v1
       with:
