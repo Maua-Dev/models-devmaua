@@ -2,7 +2,7 @@ name: Auto Increment Version
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master auto-increment-version ]
 
   workflow_dispatch:
 
