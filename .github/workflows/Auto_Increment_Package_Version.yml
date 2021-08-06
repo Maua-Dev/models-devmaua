@@ -19,11 +19,13 @@ jobs:
         path: 'config.json'
         prop_path: 'mergeVersion'
     - run: echo ${{steps.version.outputs.prop}}
+    - run: echo ${{steps.version.outputs.prop + 1}}
 
 
-    - name: Increments version on config.json
-      uses: jossef/action-set-json-field@v1
-      with:
-        file: config.json
-        field: mergeVersion
-        value: ${{steps.version.outputs.prop}}
+#    - name: Increments version on config.json
+#      uses: jossef/action-set-json-field@v1
+#      with:
+#        file: config.json
+#        field: mergeVersion
+#        value: ${{steps.version.outputs.prop}}
+
