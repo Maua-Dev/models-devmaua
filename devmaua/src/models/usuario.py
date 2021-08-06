@@ -100,7 +100,7 @@ class Usuario(BaseModel):
                               contato=contato,
                               nascimento=d['nascimento'],
                               roles=d['roles'])
-            return Usuario
+            return usuario
 
         except ValidationError:
             raise ErroDadosUsuarioInvalidos
