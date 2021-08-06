@@ -1,8 +1,11 @@
 import re
+import abc
 
 from devmaua.src.enum.tipo_telefone import TipoTelefone
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, ValidationError
+
+from devmaua.src.models.erros.erro_telefone import ErroDadosTelefoneInvalidos
 
 
 class Telefone(BaseModel):
@@ -53,3 +56,26 @@ class Telefone(BaseModel):
         if v not in ddd_valido:
             raise ValueError('ddd invalido')
         return v
+    
+    @staticmethod
+    def criarTelefonePorDict(dicionario: dict):
+        """ Instancia um telefone a partir de um dicionario do tipo:
+        {
+            "tipo":2,
+            "numero":"99999-9999",
+            "ddd":11,
+            "prioridade":3
+        }
+        
+        """
+        
+        try:
+            return Telefone(tipo = dicionario['tipo'],
+                            numero = dicionario['numero'],
+                            ddd = dicionario['ddd'],
+                            prioridade = dicionario['prioridade'])
+        
+        except ValidationError:
+            raise ErroDadosTelefoneInvalidos
+        except KeyError:
+            raise ErroDadosTelefoneInvalidos
