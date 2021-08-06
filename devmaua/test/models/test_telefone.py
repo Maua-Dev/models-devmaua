@@ -30,5 +30,18 @@ class Test_Telefone():
                        numero = '99999-9999',
                        ddd = 110,
                        prioridade = 3)
+    
+    def test_criar_telefone_por_dict(self):
+        d = {
+            "tipo":2,
+            "numero":"99999-9999",
+            "ddd":11,
+            "prioridade":3
+            }
+        
+        telefone = Telefone.criarTelefonePorDict(d)
+        assert telefone.tipo == TipoTelefone.PRIVADO
+        assert telefone.numero == "99999-9999"
+        assert telefone.prioridade == 3
         
     
