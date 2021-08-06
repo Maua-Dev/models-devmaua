@@ -59,7 +59,7 @@ class Telefone(BaseModel):
     
     @staticmethod
     def criarTelefonePorDict(dicionario: dict):
-        """ Instancia um email a partir de um dicionario do tipo:
+        """ Instancia um telefone a partir de um dicionario do tipo:
         {
             "tipo":2,
             "numero":"99999-9999",
