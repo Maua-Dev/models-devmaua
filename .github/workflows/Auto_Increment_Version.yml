@@ -1,0 +1,30 @@
+name: Auto Increment Version
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  increment:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get current version
+        id: version
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'config.json'
+          prop_path: 'mergeVersion'
+    - run: echo ${{steps.version.outputs.prop}}
+
+
+    - name: Increments version on config.json
+      uses: jossef/action-set-json-field@v1
+      with:
+        file: config.json
+        field: mergeVersion
+        value: ${{steps.version.outputs.prop}}
+
