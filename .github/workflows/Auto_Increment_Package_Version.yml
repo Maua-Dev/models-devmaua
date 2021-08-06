@@ -2,7 +2,7 @@ name: Auto Increment Version
 
 on:
   pull_request:
-    types: [ closed ]
+    types: [ open ]
 
   workflow_dispatch:
 
