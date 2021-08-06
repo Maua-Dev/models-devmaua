@@ -1,5 +1,5 @@
 # skel-maua-dev
-[![codecov](https://codecov.io/gh/Maua-Dev/models-devmaua/branch/master/graph/badge.svg?token=F7HD75UIO3)](https://codecov.io/gh/Maua-Dev/models-devmaua)
+[![codecov](https://codecov.io/gh/Maua-Dev/models_devmaua/branch/master/graph/badge.svg?token=F7HD75UIO3)](https://codecov.io/gh/Maua-Dev/models_devmaua)
 Repositório usado para armazenar a base de classes/models e enums que serão usados para o projeto do Sistema Educacional do Instituto Mauá de Tecnologia.
 
 ## Pendencias
