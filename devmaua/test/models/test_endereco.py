@@ -30,3 +30,20 @@ class Test_Endereco():
                        numero = 20,
                        cep='a',
                        tipo = TipoEndereco.RESIDENCIAL)
+            
+    def test_criar_endereco_por_dict(self):
+        d = {
+            "logradouro": "rua de tal",
+            "numero": 20,
+            "cep": "00000-000",
+            "complemento": None,
+            "tipo": 1
+            }
+        
+        end = Endereco.criarEnderecoPorDict(d)
+        
+        assert end.logradouro == 'rua de tal'
+        assert end.numero == 20
+        assert end.cep == '00000-000'
+        assert end.tipo == TipoEndereco.RESIDENCIAL
+        
