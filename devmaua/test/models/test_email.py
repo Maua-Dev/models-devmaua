@@ -20,3 +20,16 @@ class Test_Email():
             email = Email(email='teste@.teste.com',
                       tipo=TipoEmail.PRIVADO,
                       prioridade = 1)
+            
+    def test_criar_email_por_dict(self):
+        d = {
+                "email": "teste@teste.com",
+                "tipo": 1,
+                "prioridade": 1
+            }
+        
+        email = Email.criarEmailPorDict(d)
+        
+        assert email.email == 'teste@teste.com'
+        assert email.tipo == TipoEmail.PRIVADO
+        assert email.prioridade == 1
