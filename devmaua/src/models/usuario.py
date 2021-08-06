@@ -79,22 +79,22 @@ class Usuario(BaseModel):
         """
 
         try:
-            email = Email(email=d['contato']['emails'][0]['email'],
-                          tipo=d['contato']['emails'][0]['tipo'],
-                          prioridade=d['contato']['emails'][0]['prioridade'])
-
-            end = Endereco(logradouro=d['contato']['enderecos'][0]['logradouro'],
-                           numero=d['contato']['enderecos'][0]['numero'],
-                           cep=d['contato']['enderecos'][0]['cep'],
-                           tipo=d['contato']['enderecos'][0]['tipo'],
-                           complemento=d['contato']['enderecos'][0]['complemento'])
-            tel = Telefone(tipo=d['contato']['telefones'][0]['tipo'],
-                           numero=d['contato']['telefones'][0]['numero'],
-                           ddd=d['contato']['telefones'][0]['ddd'],
-                           prioridade=d['contato']['telefones'][0]['prioridade'])
-            contato = Contato(emails=[email],
-                              telefones=[tel],
-                              enderecos=[end])
+            emails = []
+            enderecos = []
+            telefones = []
+            
+            for email in d['contato']['emails']:
+                emails.append(Email.criarEmailPorDict(email))
+            
+            for endereco in d['contato']['enderecos']:
+                enderecos.append(Endereco.criarEnderecoPorDict(endereco))
+                
+            for telefone in d['contato']['telefones']:
+                telefones.append(Telefone.criarTelefonePorDict(telefone))
+                
+            contato = Contato(emails = emails,
+                              telefones = telefones,
+                              enderecos = enderecos)
 
             usuario = Usuario(nome=d['nome'],
                               contato=contato,

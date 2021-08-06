@@ -141,8 +141,8 @@ class Test_Usuario():
                             nascimento='1999-02-23',
                             roles=[])
 
-        def test_criar_usuario_por_dict(self):
-            d = {
+    def test_criar_usuario_por_dict(self):
+        d = {
                 "nome": "Jorge do Teste",
                 "contato": {
                     "telefones": [
@@ -154,12 +154,18 @@ class Test_Usuario():
                         }
                     ],
                     "emails": [
-                        {
-                            "email": "teste@teste.com",
-                            "tipo": 1,
-                            "prioridade": 1
-                        }
-                    ],
+                    {
+                        "email": "teste@teste.com",
+                        "tipo": 1,
+                        "prioridade": 1
+                    },
+                    {
+                        "email": "novo@email.com",
+                        "tipo": 2,
+                        "prioridade": 2
+                    }
+    
+                ],
                     "enderecos": [
                         {
                             "logradouro": "rua de tal",
@@ -175,27 +181,31 @@ class Test_Usuario():
                     9
                 ]
             }
-            usuario = Usuario.criarUsuarioPorDict(d)
-            assert usuario.nome == 'Jorge Do Teste'
+        usuario = Usuario.criarUsuarioPorDict(d)
+        assert usuario.nome == 'Jorge Do Teste'
 
-            assert usuario.contato.emails[0].email == 'teste@teste.com'
-            assert usuario.contato.emails[0].tipo == TipoEmail.PRIVADO
-            assert usuario.contato.emails[0].prioridade == 1
+        assert usuario.contato.emails[0].email == 'teste@teste.com'
+        assert usuario.contato.emails[0].tipo == TipoEmail.PRIVADO
+        assert usuario.contato.emails[0].prioridade == 1
+            
+        assert usuario.contato.emails[1].email == 'novo@email.com'
+        assert usuario.contato.emails[1].tipo == TipoEmail.TRABALHO
+        assert usuario.contato.emails[1].prioridade == 2
 
-            assert usuario.contato.telefones[0].tipo == TipoTelefone.PRIVADO
-            assert usuario.contato.telefones[0].numero == '99999-9999'
-            assert usuario.contato.telefones[0].ddd == 11
-            assert usuario.contato.telefones[0].prioridade == 3
+        assert usuario.contato.telefones[0].tipo == TipoTelefone.PRIVADO
+        assert usuario.contato.telefones[0].numero == '99999-9999'
+        assert usuario.contato.telefones[0].ddd == 11
+        assert usuario.contato.telefones[0].prioridade == 3
 
-            assert usuario.contato.enderecos[0].logradouro == 'rua de tal'
-            assert usuario.contato.enderecos[0].numero == 20
-            assert usuario.contato.enderecos[0].cep == '00000-000'
-            assert usuario.contato.enderecos[0].tipo == TipoEndereco.RESIDENCIAL
+        assert usuario.contato.enderecos[0].logradouro == 'rua de tal'
+        assert usuario.contato.enderecos[0].numero == 20
+        assert usuario.contato.enderecos[0].cep == '00000-000'
+        assert usuario.contato.enderecos[0].tipo == TipoEndereco.RESIDENCIAL
 
-            assert usuario.nascimento.year == 1999
-            assert usuario.nascimento.month == 2
-            assert usuario.nascimento.day == 23
+        assert usuario.nascimento.year == 1999
+        assert usuario.nascimento.month == 2
+        assert usuario.nascimento.day == 23
 
-            assert usuario.roles == [Roles.ALUNO]
+        assert usuario.roles == [Roles.ALUNO]
 
 
