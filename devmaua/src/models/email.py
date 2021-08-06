@@ -39,3 +39,5 @@ class Email(BaseModel):
             raise ErroDadosEmailInvalidos
         except KeyError:
             raise ErroDadosEmailInvalidos
+        except TypeError:
+            raise ErroDadosEmailInvalidos

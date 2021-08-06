@@ -79,3 +79,5 @@ class Telefone(BaseModel):
             raise ErroDadosTelefoneInvalidos
         except KeyError:
             raise ErroDadosTelefoneInvalidos
+        except TypeError:
+            raise ErroDadosTelefoneInvalidos

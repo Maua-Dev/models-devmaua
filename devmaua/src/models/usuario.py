@@ -107,5 +107,8 @@ class Usuario(BaseModel):
 
         except KeyError:
             raise ErroDadosUsuarioInvalidos
+        
+        except TypeError:
+            raise ErroDadosUsuarioInvalidos
 
 
