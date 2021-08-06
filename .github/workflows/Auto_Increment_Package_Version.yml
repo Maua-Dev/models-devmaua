@@ -2,7 +2,7 @@ name: Auto Increment Version
 
 on:
   push:
-    branches: [ master auto-increment-version ]
+    branches: [ main auto-increment-version ]
 
   workflow_dispatch:
 
@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
     - name: Get current version
       id: version
@@ -18,15 +21,31 @@ jobs:
       with:
         path: 'config.json'
         prop_path: 'mergeVersion'
-    - run: echo ${{steps.version.outputs.prop}}
-    - run: echo ${{steps.version.outputs.prop + 1}}
-    - run: echo ${{(steps.version.outputs.prop + 1)}}
+
+    - name: New Version
+      id: newVersion
+      run: |
+        echo ${{steps.version.outputs.prop}}
+        echo $((${{steps.version.outputs.prop}}+1))
+        echo "::set-output name=newVersionNumber::$((${{steps.version.outputs.prop}}+1))"
+
+      # New Version: $((${{steps.version.outputs.prop}}+1))
+
+    - name: Atualizar versao
+      uses: jossef/action-set-json-field@v1
+      with:
+        file: config.json
+        field: mergeVersion
+        value: ${{ steps.newVersion.outputs.newVersionNumber }}
 
 
-#    - name: Increments version on config.json
-#      uses: jossef/action-set-json-field@v1
-#      with:
-#        file: config.json
-#        field: mergeVersion
-#        value: ${{steps.version.outputs.prop}}
-
+    - name: Commit files
+      run: |
+            git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git commit -m "Auto increment version" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
