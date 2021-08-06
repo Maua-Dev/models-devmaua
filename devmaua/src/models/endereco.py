@@ -54,3 +54,5 @@ class Endereco(BaseModel):
             raise ErroDadosEnderecoInvalidos
         except KeyError:
             raise ErroDadosEnderecoInvalidos
+        except TypeError:
+            raise ErroDadosEnderecoInvalidos
