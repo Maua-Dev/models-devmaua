@@ -20,6 +20,7 @@ jobs:
         prop_path: 'mergeVersion'
     - run: echo ${{steps.version.outputs.prop}}
     - run: echo ${{steps.version.outputs.prop + 1}}
+    - run: echo ${{(steps.version.outputs.prop + 1)}}
 
 
 #    - name: Increments version on config.json
