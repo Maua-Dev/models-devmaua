@@ -2,7 +2,7 @@ name: Auto Increment Version
 
 on:
   pull_request:
-    branches: [ master ]
+    types: [ open ]
 
   workflow_dispatch:
 
@@ -26,23 +26,31 @@ jobs:
       id: newVersion
       run: echo "::set-output name=newVersionNumber::$((${{steps.version.outputs.prop}}+1))"
 
-
+    - name: Get Branch Name
+    - uses: mdecoleman/pr-branch-name@1.0.1
+      id: branchName
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: echo ${{ steps.branchName.outputs.branch }}
+    
+    
     - name: Atualizar versao
       uses: jossef/action-set-json-field@v1
       with:
         file: config.json
         field: mergeVersion
         value: ${{ steps.newVersion.outputs.newVersionNumber }}
-        
 
 
-    - name: Commita e sobe as mudancas
+    - name: Commita as mudancas
       run: |
             git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
             git commit -m "Auto increment version" -a
+            
+            
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ BASE_BRANCH}}
+        branch: ${{ steps.branchName.outputs.branch }}
