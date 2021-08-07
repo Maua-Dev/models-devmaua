@@ -27,7 +27,7 @@ jobs:
       run: echo "::set-output name=newVersionNumber::$((${{steps.version.outputs.prop}}+1))"
 
     - name: Get Branch Name
-    - uses: mdecoleman/pr-branch-name@1.0.1
+      uses: mdecoleman/pr-branch-name@1.0.1
       id: branchName
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
