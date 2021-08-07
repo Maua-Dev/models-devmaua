@@ -31,7 +31,7 @@ jobs:
       id: branchName
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: echo ${{ steps.branchName.outputs.branch }}
+      
     
     
     - name: Atualizar versao
