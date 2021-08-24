@@ -4,7 +4,6 @@ from distutils.core import setup
 def getConfig():
     with open("config.json") as configFile:
         configJson = json.load(configFile)
-        configFile.close()
         return configJson
 
 
