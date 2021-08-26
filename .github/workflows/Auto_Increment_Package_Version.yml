@@ -1,10 +1,8 @@
 name: Auto Increment Version
 
 on:
-  pull_request:
-    branches: [ master ]
-
-  workflow_dispatch:
+ pull_request_review:
+    types: [submitted]
 
 jobs:
   increment:
