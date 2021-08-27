@@ -4,8 +4,24 @@ on:
  pull_request_review:
     types: [submitted]
 
+
 jobs:
+  verificarAprovado:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+        
+    - name: Verificar se foi aprovado
+      if: github.event.review.state != 'approved'
+      uses: styfle/cancel-workflow-action@0.9.1
+      with:
+       access_token: ${{ github.token }}
+
+
   increment:
+    needs: verificarAprovado
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +38,8 @@ jobs:
     - name: New Version
       id: newVersion
       run: echo "::set-output name=newVersionNumber::$((${{steps.version.outputs.prop}}+1))"
-
+      
+      
     - name: Get Branch Name
       uses: tj-actions/branch-names@v4.8
       id: branchName
@@ -38,10 +55,8 @@ jobs:
       run: |
             git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
+            gh pr checkout $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
             git commit -m "Auto increment version" -a
-                       
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ steps.branchName.outputs.current_branch }}
+            git push
+      env:
+           GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}            
